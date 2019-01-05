@@ -1,0 +1,33 @@
+sov1:
+  name: Soverom 1
+  view: yes
+  entities:
+    - group.sov1_lys
+sov1_lys:
+  name: Lys
+  entities:
+    - switch.qubino_zmnhadx_flush_1_relay_switch
+    - light.qubino_zmnhdd1_flush_dimmer_level
+vaskerom:
+  name: Vaskerom
+  view: yes
+  entities:
+    - group.vaskerom_gulvvarme
+    - group.vaskerom_vaskemaskin
+vaskerom_gulvvarme:
+  name: Gulvvarme
+  entities:
+    - climate.thermofloor_as_heatit_thermostat_tf_021_heating
+    - climate.thermofloor_as_heatit_thermostat_tf_021_energy_heat
+vaskerom_vaskemaskin:
+  name: Vaskemaskin
+  entities:
+    - input_boolean.washing_machine
+stue:
+  name: Stue
+  view: yes
+  entities:
+sov4:
+  name: Soverom 4
+  view: yes
+  entities:

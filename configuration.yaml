@@ -1,0 +1,115 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 47
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Oslo
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+#   base_url: example.duckdns.org:8123
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Sensors
+sensor:
+  # Weather prediction
+  - platform: yr
+
+# Inputs
+input_boolean:
+  washing_machine:
+    name: Vaskemaskin
+    initial: off
+    icon: mdi:washing-machine
+
+# Text to speech
+tts:
+  - platform: google
+    language: 'no'
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: !secret configurator_url
+  nodered:
+    title: Node-RED
+    icon: mdi:sitemap
+    url: !secret nodered_url
+
+upnp:
+  port_mapping: true
+
+# Z-wave
+zwave:
+  usb_path: /dev/ttyACM0
+  
+# Verisure
+verisure:
+  username: !secret verisure_username
+  password: !secret verisure_password
+  
+# Google Assistant
+google_assistant:
+  project_id: !secret google_assistant_project
+  api_key: !secret google_assistant_api_key
+  
+# Slack  
+notify:
+  - name: slack
+    platform: slack
+    api_key: !secret slack_api_key
+    default_channel: '#hjemme'
