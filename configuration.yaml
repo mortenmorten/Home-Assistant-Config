@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 # Show links to resources in log and frontend
-introduction:
+# introduction:
 
 # Enables the frontend
 frontend:
@@ -96,7 +96,12 @@ upnp:
 # Z-wave
 zwave:
   usb_path: /dev/ttyACM0
-  
+  device_config_glob:
+    "sensor.*_exporting*":
+      ignored: true
+    "sensor.*_sourcenodeid*":
+      ignored: true
+      
 # Verisure
 verisure:
   username: !secret verisure_username
@@ -113,3 +118,10 @@ notify:
     platform: slack
     api_key: !secret slack_api_key
     default_channel: '#hjemme'
+
+# Switches -> Lights
+light:
+  - platform: switch
+    name: soverom_taklys
+    entity_id: switch.qubino_zmnhadx_flush_1_relay_switch
+

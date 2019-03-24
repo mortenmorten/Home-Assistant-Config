@@ -8,9 +8,11 @@ resources:
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
+
 # Exclude entities from "Unused entities" view
 excluded_entities:
   - weblink.router
+
 views:
     # View tab title.
   - title: Example
@@ -39,6 +41,7 @@ views:
         image: https://www.home-assistant.io/images/default-social.png
         entity: light.bed_light
 
+
     # Specify a tab icon if you want the view tab to be an icon.
   - icon: mdi:home-assistant
     # Title of the view. Will be used as the tooltip for tab icon
@@ -62,17 +65,18 @@ views:
         title: Lovelace
         content: >
           Welcome to your **Lovelace UI**.
+
   - title: Soverom 1
     id: soverom1
     cards:
       - type: entities
         title: Lys
         entities:
-          - type: entity-button
-            entity: switch.qubino_zmnhadx_flush_1_relay_switch
-            icon: mdi:lightbulb
+          - type: light
+            entity: light.soverom_taklys
           - type: light
             entity: light.qubino_zmnhdd1_flush_dimmer_level
+
   - title: Vaskerom
     id: vaskerom
     cards:

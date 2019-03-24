@@ -3,30 +3,46 @@ sov1:
   view: yes
   entities:
     - group.sov1_lys
+
 sov1_lys:
   name: Lys
   entities:
-    - switch.qubino_zmnhadx_flush_1_relay_switch
+    - light.soverom_taklys
     - light.qubino_zmnhdd1_flush_dimmer_level
+
 vaskerom:
   name: Vaskerom
   view: yes
   entities:
+    - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
     - group.vaskerom_gulvvarme
     - group.vaskerom_vaskemaskin
+
 vaskerom_gulvvarme:
   name: Gulvvarme
   entities:
     - climate.thermofloor_as_heatit_thermostat_tf_021_heating
     - climate.thermofloor_as_heatit_thermostat_tf_021_energy_heat
+
 vaskerom_vaskemaskin:
   name: Vaskemaskin
+  control: hidden
   entities:
     - input_boolean.washing_machine
+    - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+
+bad_nede:
+  name: Bad, nede
+  view: yes
+  entities:
+    - climate.thermofloor_as_heatit_thermostat_tf_021_heating_2
+    - climate.thermofloor_as_heatit_thermostat_tf_021_energy_heat_2
+
 stue:
   name: Stue
   view: yes
   entities:
+
 sov4:
   name: Soverom 4
   view: yes
